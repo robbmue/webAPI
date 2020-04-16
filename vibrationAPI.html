@@ -1,22 +1,27 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang="en">
+
 <head>
-  <!-- basic.html -->
-  <title>vibrationAPI</title>
-  <meta charset = "UTF-8" />
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- basic.html -->
+    <title>vibrationAPI</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <h1>The Vibration API</h1>
     <button class="button" onclick="vibrate(1000)">Vibrate Single</button><br>
     <button class="button" onclick="vibratePattern()">Vibrate Pattern</button>
 
     <script>
-        function vibrate (ms) {
+        function vibrate(ms) {
             navigator.vibrate(ms);
         }
-        function vibratePattern () {
-            navigator.vibrate([300,100,300,100,300]);
+
+        function vibratePattern() {
+            navigator.vibrate([300, 100, 300, 100, 300]);
         }
     </script>
+
+    <a href="index.html"> back </button>
 </body>

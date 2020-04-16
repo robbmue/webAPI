@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang="en">
+
 <head>
   <!-- basic.html -->
   <title>notificationAPI</title>
-  <meta charset = "UTF-8" />
+  <meta charset="UTF-8" />
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
   <h1>The Notification API</h1>
   <button onclick="notifyMe()">Notify me!</button>
@@ -25,7 +27,7 @@
 
       // Otherwise, we need to ask the user for permission
       else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(function(permission) {
+        Notification.requestPermission().then(function (permission) {
           // If the user accepts, let's create a notification
           if (permission === "granted") {
             var notification = new Notification("Hi there!");
@@ -37,4 +39,5 @@
       // want to be respectful there is no need to bother them any more.
     }
   </script>
+  <a href="index.html"> back </button>
 </body>
