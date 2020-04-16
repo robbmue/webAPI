@@ -1,0 +1,17 @@
+body {
+    position: relative;
+    width: 100%;
+    display: block;
+  }
+
+  body > *  {
+    margin: auto;
+    margin-top: 20px;
+    width: 500px;
+    display: block;
+    overflow: auto;
+  }
+
+  body > script {
+    display: none
+  }
