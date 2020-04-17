@@ -10,6 +10,27 @@
 
 <body>
   <h1>The Notification API</h1>
+  <p> 
+    This API is used to access the current position of the user.<br>
+    It delivers the coordinates as latitude and longitude which can be used in an google maps or openstreetmap URL to display the position in a visual way. <br>
+    To use this API you need to call <br>
+    <code> navigator.geolocation.getCurretnPosition(success, error)</code> <br>
+    In this example u need to define two functions: <b>success</b> and <b>error</b>. <br>
+    error is used to display a message like "Unable to retrieve your location" and success is used to deisplay the accurat position. <br>
+    As said before, use a function like this: <br>
+    <code>
+      function success(position) {<br>
+        const latitude = position.coords.latitude;<br>
+        const longitude = position.coords.longitude;<br>
+        <br>
+        status.textContent = "";<br>
+        mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;<br>
+        mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;<br>
+      }<br>
+    </code>
+    To use this correctly you first need to declare a text field with the ID <i>status</i> and a href field with the ID <i>map-link</i>.<br>
+    View the soource code of this website to see how it is done and try it out below!<br>
+  </p>
   <button id="find-me">Show my location</button><br />
   <p id="status"></p>
   <a id="map-link" target="_blank"></a>

@@ -10,6 +10,37 @@
 
 <body>
   <h1>The Notification API</h1>
+
+  <p>
+    This API allows web apps to send notifications at system level and not only at website level. <br>
+    This way an application can notify the user, even when it is idle or in background. <br>
+    An typical use-case would be a chat or mail application, where you want to user get the message immediatly. <br>
+    To use this API you must check for the right permissions, they can be accessed via <br>
+    <code> Notification.permission </code> <br>
+    and can be <br>
+    <ul>
+      <li><b>default</b> - the user hasn't been asked yet, so no notifications</li>
+      <li><b>denied</b> - no notificaitons can be displayed</li>
+      <li><b>granted</b> - you are good to go and can display notificaitons</li>
+    </ul>
+  </p>
+  <p>
+    Dont worry if you dont have the right permissions set, they can be requested like this:<br>
+    <code>
+      if (Notification.permission !== "denied") { <br>
+      Notification.requestPermission().then(function (permission) { <br>
+      //Do whatever you want to do <br>
+      });
+    </code> <br>
+    And finally the notification is created like this: <br>
+    <code>
+      var notification = new Notification("Hi there!");
+    </code> <br>
+    Try it out below!
+    <br>
+
+  </p>
+
   <button onclick="notifyMe()">Notify me!</button>
 
   <script>

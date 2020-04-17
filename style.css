@@ -7,9 +7,13 @@ body {
 body>* {
     margin: auto;
     margin-top: 20px;
-    width: 500px;
+    width: 700px;
     display: block;
     overflow: auto;
+}
+
+body>p {
+    line-height: 22px
 }
 
 body>script {

@@ -12,6 +12,33 @@
 
     <h1> The Camera API </h1>
 
+    <p>
+        Since the cameraAPI is deprecated the title is not quiet accurate, but it gives you the right idea about what is going on. <br>
+        The method <br>
+        <code> 
+            navigator.mediaDevices.getUserMedia()
+        </code>
+        <br>
+        asks for the users permission to access an input device like the camera. <br>
+        If accepted, it returns a <i>Promise</i> which resolves into a <i>MediaStream</i>. The <i>MediaStream</i> can contain a video track, an audio track and various other tracks.<br>
+        This stream can than be set as the <i>srcObject</i> of an video element in the HTML-Appliaction which the live stream of the selected input device. <br>
+        Use it like this: <br>
+        <code>
+            var video = document.getElementById('video'); <br>
+            <br>
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) { <br>
+            navigator.mediaDevices.getUserMedia({ <br>
+                video: true <br>
+            }).then(function (stream) { <br>
+                //video.src = window.URL.createObjectURL(stream); <br>
+                video.srcObject = stream; <br>
+                video.play(); <br>
+            }); <br>
+        } <br>
+        </code>
+        Try it out below! <br>
+    </p>
+
     <video id="video" width="640" height="480" autoplay></video>
     <button id="snap" onclick="snap()">Snap Photo</button>
     <canvas id="canvas" width="640" height="480"></canvas>
