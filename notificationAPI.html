@@ -34,7 +34,7 @@
     </code> <br>
     And finally the notification is created like this: <br>
     <code>
-      var notification = new Notification("Hi there!");
+      new Notification("Hi there!");
     </code> <br>
     Try it out below!
     <br>
@@ -50,13 +50,13 @@
       }
 
       else if (Notification.permission === "granted") {
-        var notification = new Notification("Hi there!");
+        new Notification("Hello World!");
       }
 
       else if (Notification.permission !== "denied") {
         Notification.requestPermission().then(function (permission) {
           if (permission === "granted") {
-            var notification = new Notification("Hi there!");
+            new Notification("Hi there!");
           }
         });
       }

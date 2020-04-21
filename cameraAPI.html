@@ -40,9 +40,6 @@
     </p>
 
     <video id="video" width="640" height="480" autoplay></video>
-    <button id="snap" onclick="snap()">Snap Photo</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
-
 
     <script>
         var video = document.getElementById('video');
@@ -56,17 +53,6 @@
             });
         }
 
-        function snap() {
-
-            var canvas = document.getElementById('canvas');
-            var context = canvas.getContext('2d');
-            var video = document.getElementById('video');
-
-            document.getElementById("snap").addEventListener("click", function () {
-                context.drawImage(video, 0, 0, 640, 480);
-            });
-        }
     </script>
-
-    <a href="index.html"> back </button>
+    <a href="index.html"> back </a>
 </body>
