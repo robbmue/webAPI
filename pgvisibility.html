@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- basic.html -->
+    <title>Page visibility API</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Page visibility API</h1>
+
+    <p></p>
+
+    <!--
+        !!!!!
+        !!!!!
+        WICHTIG - DAS ENABLEJSAPI=1 BEACHTEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!!!
+        !!!!!
+    -->
+
+    <!--<iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1"> </iframe>-->
+    <iframe src="https://www.youtube.com/embed/DLzxrzFCyOs?enablejsapi=1" width="420" height="315" frameborder="0" allowfullscreen=""></iframe>
+
+    <script>
+        // Set the name of the hidden property and the change event for visibility
+        var hidden, visibilityChange;
+        if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+            hidden = "hidden";
+            visibilityChange = "visibilitychange";
+        } else if (typeof document.msHidden !== "undefined") {
+            hidden = "msHidden";
+            visibilityChange = "msvisibilitychange";
+        } else if (typeof document.webkitHidden !== "undefined") {
+            hidden = "webkitHidden";
+            visibilityChange = "webkitvisibilitychange";
+        }
+
+        var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
+
+        // If the page is hidden, pause the video;
+        // if the page is shown, play the video
+        function handleVisibilityChange() {
+            if (document[hidden]) {
+                console.log("hidden");
+                document.title = 'Paused';
+                iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            } else {
+                console.log("visible");
+                document.title = 'Playing';
+                iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            }
+        }
+
+        // Warn if the browser doesn't support addEventListener or the Page Visibility API
+        if (typeof document.addEventListener === "undefined" || hidden === undefined) {
+            console.log(
+                "This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API."
+            );
+        } else {
+            // Handle page visibility change   
+            document.addEventListener(visibilityChange, handleVisibilityChange, false);
+
+        }
+    </script>
+
+    <a href="index.html"> back </a>
+</body>

@@ -21,7 +21,9 @@
         <br>
     </p>
     <button class="button" onclick="vibrate(1000)">Vibrate Single</button><br>
-    <button class="button" onclick="vibratePattern()">Vibrate Pattern</button>
+    <button class="button" onclick="vibratePattern()">Vibrate Pattern</button><br>
+    <button class="button" onclick="vibrateStarWars()">May the vibration be with you</button><br>
+    <button class="button" onclick="itsame()">It's a me, Mariooo!</button>
 
     <script>
         function vibrate(ms) {
@@ -30,6 +32,14 @@
 
         function vibratePattern() {
             navigator.vibrate([300, 100, 300, 100, 300]);
+        }
+
+        function vibrateStarWars() {
+            navigator.vibrate([500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]);
+        }
+
+        function itsame() {
+            navigator.vibrate([125,75,125,275,200,275,125,75,125,275,200,600,200,600]);
         }
     </script>
 

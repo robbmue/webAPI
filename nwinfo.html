@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- basic.html -->
+    <title>Network information API</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Network information API</h1>
+
+    <p></p>
+
+    <p>Network type that browser uses: <code id=type></code>
+    <p>Effective bandwidth estimate: <code id=downlink></code>
+    <p>Effective round-trip time estimate: <code id=rtt></code>
+    <p>Upper bound on the downlink speed of the first network hop: <code id=downlinkMax></code>
+    <p>Effective connection type determined using a combination of recently observed rtt and downlink values: <code id=effectiveType></code>
+    <p>True if the user has requested a reduced data usage mode from the user agent: <code id=saveData></code></p>
+
+    <script>
+        navigator.connection.addEventListener('change', logNetworkInfo);
+        const type = document.querySelector("#type");
+        const downlink = document.querySelector("#downlink");
+        const rtt = document.querySelector("#rtt");
+        const downlinkMax = document.querySelector("#downlinkMax");
+        const effectiveType = document.querySelector("#effectiveType");
+        const saveData = document.querySelector("#saveData");
+
+
+
+        function log(info) {
+            console.log(info);
+        }
+
+        function logNetworkInfo() {
+            // Network type that browser uses
+            log('         type: ' + navigator.connection.type);
+            type.textContent = ('         type: ' + navigator.connection.type);
+
+            // Effective bandwidth estimate
+            log('     downlink: ' + navigator.connection.downlink + 'Mb/s');
+            downlink.textContent = ('     downlink: ' + navigator.connection.downlink + 'Mb/s');
+
+            // Effective round-trip time estimate
+            log('          rtt: ' + navigator.connection.rtt + 'ms');
+            rtt.textContent = ('          rtt: ' + navigator.connection.rtt + 'ms');
+
+            // Upper bound on the downlink speed of the first network hop
+            log('  downlinkMax: ' + navigator.connection.downlinkMax + 'Mb/s');
+            downlinkMax.textContent = ('  downlinkMax: ' + navigator.connection.downlinkMax + 'Mb/s');
+
+            // Effective connection type determined using a combination of recently
+            // observed rtt and downlink values: ' +
+            log('effectiveType: ' + navigator.connection.effectiveType);
+            effectiveType.textContent = ('effectiveType: ' + navigator.connection.effectiveType);
+
+            // True if the user has requested a reduced data usage mode from the user
+            // agent.
+            log('     saveData: ' + navigator.connection.saveData);
+            saveData.textContent = ('     saveData: ' + navigator.connection.saveData);
+
+        }
+
+        logNetworkInfo();
+    </script>
+    <a href="index.html"> back </a>
+</body>
